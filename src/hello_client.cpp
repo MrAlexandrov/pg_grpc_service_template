@@ -13,7 +13,7 @@ std::string HelloClient::SayHello(std::string name) {
   // Perform RPC by sending the request and receiving the response.
   auto response = client_.SayHello(request);
 
-  return std::move(*response.mutable_text());
+  return std::move(*response.Finish().mutable_text());
 }
 
 userver::yaml_config::Schema HelloClient::GetStaticConfigSchema() {
